@@ -88,10 +88,10 @@ Không thêm cột `Bằng chứng`; ảnh lỗi được quản lý riêng tron
 
 | Test ID | Lớp bao phủ | Điều kiện và thao tác | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 |---|---|---|---|---|---|
-| FR04-DT-18 | A2 | Không gửi JWT khi gọi GET hồ sơ. | Bị từ chối xác thực. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-19 | A2 | Không gửi JWT khi gọi PUT cập nhật hồ sơ. | Bị từ chối; dữ liệu không đổi. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-20 | A3 | Gửi JWT sai hoặc hết hạn khi gọi GET/PUT hồ sơ. | Bị từ chối; dữ liệu không đổi. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-21 | A4 | Thử thay đổi ID hồ sơ trong request để truy cập User khác, nếu endpoint cho phép ID. | Bị từ chối hoặc không trả/cập nhật dữ liệu người khác. | Chưa ghi | Chưa thực hiện |
+| FR04-DT-18 | A2 | Không gửi JWT khi gọi GET hồ sơ. | Bị từ chối xác thực. | Từ chối xác thực | Pass |
+| FR04-DT-19 | A2 | Không gửi JWT khi gọi PUT cập nhật hồ sơ. | Bị từ chối; dữ liệu không đổi. | Từ chối xác thực| pass |
+| FR04-DT-20 | A3 | Gửi JWT sai hoặc hết hạn khi gọi GET/PUT hồ sơ. | Bị từ chối; dữ liệu không đổi. | Bị từ chối | Pass |
+| FR04-DT-21 | A4 | Thử thay đổi ID hồ sơ trong request để truy cập User khác, nếu endpoint cho phép ID. | Bị từ chối hoặc không trả/cập nhật dữ liệu người khác. | Bad request | Pass |
 
 ## 7. Tổng hợp thiết kế
 
