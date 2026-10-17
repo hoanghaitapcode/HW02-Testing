@@ -68,11 +68,11 @@ Không thêm cột `Bằng chứng`; ảnh lỗi được quản lý riêng tron
 
 | Test ID | Lớp bao phủ | Dữ liệu và thao tác | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 |---|---|---|---|---|---|
-| FR04-DT-08 | P2 | Nhập `1912345678` và lưu. | Từ chối vì không bắt đầu bằng `0`. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-09 | P3 | Nhập `09A2345678` và lưu. | Từ chối vì có chữ cái. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-10 | P3 | Nhập `09 2345678` và lưu. | Từ chối vì có khoảng trắng. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-11 | P3 | Nhập `09-234-5678` và lưu. | Từ chối vì có dấu gạch không thuộc dạng chữ số thuần. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-12 | P4 | Xóa số điện thoại rồi lưu. | Ghi nhận hành vi theo đặc tả thực tế; không tự coi là lỗi nếu tính bắt buộc chưa được quy định. | Chưa ghi | Chưa thực hiện |
+| FR04-DT-08 | P2 | Nhập `1912345678` và lưu. | Từ chối vì không bắt đầu bằng `0`. | Lưu thành công | Fail |
+| FR04-DT-09 | P3 | Nhập `09A2345678` và lưu. | Từ chối vì có chữ cái. | ưu thành công | Fail |
+| FR04-DT-10 | P3 | Nhập `09 2345678` và lưu. | Từ chối vì có khoảng trắng|Lưu thành công | Fail |
+| FR04-DT-11 | P3 | Nhập `09-234-5678` và lưu. | Từ chối vì có dấu gạch không thuộc dạng chữ số thuần. |Lưu thành công | Fail |
+| FR04-DT-12 | P4 | Xóa số điện thoại rồi lưu. | Ghi nhận hành vi theo đặc tả thực tế; không tự coi là lỗi nếu tính bắt buộc chưa được quy định. | Lưu thành công | Ambigous |
 
 ## 5. Test Email và role bị giới hạn
 
