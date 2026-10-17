@@ -58,9 +58,9 @@ Các test dưới đây dùng OTP mà SUT thực tế cấp để cô lập riê
 
 | Test ID | Biên | Mật khẩu mới và xác nhận | Kết quả mong đợi | Kết quả thực tế | Trạng thái | Bằng chứng |
 |---|---|---|---|---|---|---|
-| FR03-BVA-PWD-07 | `n-1` | Mới: `Newp1!a`; xác nhận: `Newp1!a` | Từ chối vì mật khẩu có 7 ký tự. | Chưa ghi | Chưa thực hiện | — |
-| FR03-BVA-PWD-08 | `n` | Mới: `Newpa1!x`; xác nhận: `Newpa1!x` | Chấp nhận vì mật khẩu có đúng 8 ký tự và đủ thành phần. | Chưa ghi | Chưa thực hiện | — |
-| FR03-BVA-PWD-09 | `n+1` | Mới: `Newpass1!`; xác nhận: `Newpass1!` | Chấp nhận vì mật khẩu có 9 ký tự và đủ thành phần. | Chưa ghi | Chưa thực hiện | — |
+| FR03-BVA-PWD-07 | `n-1` | Mới: `Newp1!a`; xác nhận: `Newp1!a` | Từ chối vì mật khẩu có 7 ký tự. | Từ chối với lý do chung là mật khẩu yếu | blocked | — |
+| FR03-BVA-PWD-08 | `n` | Mới: `Newpa1!x`; xác nhận: `Newpa1!x` | Chấp nhận vì mật khẩu có đúng 8 ký tự và đủ thành phần. | Từ chối với lý do chung là mật khẩu yếu | blocked | — |
+| FR03-BVA-PWD-09 | `n+1` | Mới: `Newpass1!`; xác nhận: `Newpass1!` | Chấp nhận vì mật khẩu có 9 ký tự và đủ thành phần. | Từ chối với lý do chung là mật khẩu yếu | blocked | — |
 
 ## 6. Không áp dụng BVA số
 
