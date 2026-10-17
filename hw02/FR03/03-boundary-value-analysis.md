@@ -49,8 +49,8 @@ Ba giá trị đều có chữ hoa, chữ thường, chữ số và ký tự đ�
 | Test ID | Biên | Dữ liệu / bước thực hiện | Kết quả mong đợi | Kết quả thực tế | Trạng thái | Bằng chứng |
 |---|---|---|---|---|---|---|
 | FR03-BVA-OTP-05 | `n-1` | Ở bước 2, nhập OTP `12345`, mật khẩu mới hợp lệ và gửi form. | Từ chối vì OTP có 5 chữ số; mật khẩu không đổi. | Mật khẩu không đạt | Blocked | — |
-| FR03-BVA-OTP-06 | `n` | Dùng một OTP **thực tế gồm 6 chữ số** do hệ thống cấp, nhập cùng mật khẩu hợp lệ và gửi form. | Chấp nhận OTP về độ dài và cho phép đặt lại mật khẩu. Nếu SUT không thể cấp OTP 6 chữ số, ghi `Blocked` với nguyên nhân; không đánh dấu Pass bằng OTP 4 chữ số. | Chưa ghi | Chưa thực hiện | — |
-| FR03-BVA-OTP-07 | `n+1` | Ở bước 2, nhập OTP `1234567`, mật khẩu mới hợp lệ và gửi form. | Từ chối vì OTP có 7 chữ số; mật khẩu không đổi. | Chưa ghi | Chưa thực hiện | — |
+| FR03-BVA-OTP-06 | `n` | Dùng một OTP **thực tế gồm 6 chữ số** do hệ thống cấp, nhập cùng mật khẩu hợp lệ và gửi form. | Chấp nhận OTP về độ dài và cho phép đặt lại mật khẩu. Nếu SUT không thể cấp OTP 6 chữ số, ghi `Blocked` với nguyên nhân; không đánh dấu Pass bằng OTP 4 chữ số. | OTP gửi về chỉ 4 chữ số | BLOCKED | — |
+| FR03-BVA-OTP-07 | `n+1` | Ở bước 2, nhập OTP `1234567`, mật khẩu mới hợp lệ và gửi form. | Từ chối vì OTP có 7 chữ số; mật khẩu không đổi. | OTP Chi gửi 4 số | Blocked | — |
 
 ## 5. Test case BVA độ dài mật khẩu
 
