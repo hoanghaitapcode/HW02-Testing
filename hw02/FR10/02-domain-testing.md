@@ -66,21 +66,21 @@ Các ô cùng trạng thái là `Ambiguous` vì đặc tả chưa nói rõ yêu 
 
 | Test ID | Lớp bao phủ | Điều kiện và thao tác | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 |---|---|---|---|---|---|
-| FR10-DT-08 | S1→D3 | Chuyển `pending` sang `shipping`. | Trả lỗi; trạng thái vẫn `pending`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-09 | S1→D4 | Chuyển `pending` sang `delivered`. | Trả lỗi; trạng thái vẫn `pending`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-10 | S2→D1 | Chuyển `confirmed` về `pending`. | Trả lỗi; trạng thái vẫn `confirmed`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-11 | S2→D4 | Chuyển `confirmed` sang `delivered`. | Trả lỗi; trạng thái vẫn `confirmed`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-12 | S3→D1 | Chuyển `shipping` về `pending`. | Trả lỗi; trạng thái vẫn `shipping`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-13 | S3→D2 | Chuyển `shipping` về `confirmed`. | Trả lỗi; trạng thái vẫn `shipping`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-14 | S3→D5, A2 | User cố hủy đơn đang `shipping`. | Từ chối; trạng thái vẫn `shipping`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-15 | S4→D1 | Chuyển `delivered` sang `pending`. | Trả lỗi; trạng thái vẫn `delivered`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-16 | S4→D2 | Chuyển `delivered` sang `confirmed`. | Trả lỗi; trạng thái vẫn `delivered`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-17 | S4→D3 | Chuyển `delivered` sang `shipping`. | Trả lỗi; trạng thái vẫn `delivered`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-18 | S4→D5 | Chuyển `delivered` sang `canceled`. | Trả lỗi; trạng thái vẫn `delivered`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-19 | S5→D1 | Chuyển `canceled` sang `pending`. | Trả lỗi; trạng thái vẫn `canceled`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-20 | S5→D2 | Chuyển `canceled` sang `confirmed`. | Trả lỗi; trạng thái vẫn `canceled`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-21 | S5→D3 | Chuyển `canceled` sang `shipping`. | Trả lỗi; trạng thái vẫn `canceled`. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-22 | S5→D4 | Chuyển `canceled` sang `delivered`. | Trả lỗi; trạng thái vẫn `canceled`. | Chưa ghi | Chưa thực hiện |
+| FR10-DT-08 | S1→D3 | Chuyển `pending` sang `shipping`. | Trả lỗi; trạng thái vẫn `pending`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-09 | S1→D4 | Chuyển `pending` sang `delivered`. | Trả lỗi; trạng thái vẫn `pending`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-10 | S2→D1 | Chuyển `confirmed` về `pending`. | Trả lỗi; trạng thái vẫn `confirmed`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-11 | S2→D4 | Chuyển `confirmed` sang `delivered`. | Trả lỗi; trạng thái vẫn `confirmed`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-12 | S3→D1 | Chuyển `shipping` về `pending`. | Trả lỗi; trạng thái vẫn `shipping`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-13 | S3→D2 | Chuyển `shipping` về `confirmed`. | Trả lỗi; trạng thái vẫn `shipping`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-14 | S3→D5, A2 | User cố hủy đơn đang `shipping`. | Từ chối; trạng thái vẫn `shipping`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-15 | S4→D1 | Chuyển `delivered` sang `pending`. | Trả lỗi; trạng thái vẫn `delivered`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-16 | S4→D2 | Chuyển `delivered` sang `confirmed`. | Trả lỗi; trạng thái vẫn `delivered`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-17 | S4→D3 | Chuyển `delivered` sang `shipping`. | Trả lỗi; trạng thái vẫn `delivered`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-18 | S4→D5 | Chuyển `delivered` sang `canceled`. | Trả lỗi; trạng thái vẫn `delivered`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-19 | S5→D1 | Chuyển `canceled` sang `pending`. | Trả lỗi; trạng thái vẫn `canceled`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-20 | S5→D2 | Chuyển `canceled` sang `confirmed`. | Trả lỗi; trạng thái vẫn `canceled`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-21 | S5→D3 | Chuyển `canceled` sang `shipping`. | Trả lỗi; trạng thái vẫn `canceled`. | UI chỉ hỗ trợ chuyển step by step | Block |
+| FR10-DT-22 | S5→D4 | Chuyển `canceled` sang `delivered`. | Trả lỗi; trạng thái vẫn `canceled`. | UI chỉ hỗ trợ chuyển step by step | Block |
 
 ## 7. Quyền, xác thực và sở hữu
 
