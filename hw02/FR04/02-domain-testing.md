@@ -78,11 +78,11 @@ Không thêm cột `Bằng chứng`; ảnh lỗi được quản lý riêng tron
 
 | Test ID | Lớp bao phủ | Điều kiện và thao tác | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 |---|---|---|---|---|---|
-| FR04-DT-13 | R1 | Cập nhật name, phone, shipping_address mà không gửi Email/role. | Ba trường được cập nhật; Email và role giữ nguyên. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-14 | R2 | Trên Mobile UI, tìm cách sửa Email hoặc nhập Email mới nếu có trường này. | Email không có trường chỉnh sửa hoặc không thay đổi sau khi lưu. | Chưa ghi | Chưa thực hiện |
+| FR04-DT-13 | R1 | Cập nhật name, phone, shipping_address mà không gửi Email/role. | Ba trường được cập nhật; Email và role giữ nguyên. | Ba trường cập nhật đúng | Pass |
+| FR04-DT-14 | R2 | Trên Mobile UI, tìm cách sửa Email hoặc nhập Email mới nếu có trường này. | Email không có trường chỉnh sửa hoặc không thay đổi sau khi lưu. | Email vẫn giữ nguyên | Pass |
 | FR04-DT-15 | R2 | Gửi request cập nhật kèm Email mới. | API từ chối hoặc bỏ qua Email; Email cũ giữ nguyên. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-16 | R3 | Gửi request với `role: "admin"` trong payload của User thường. | API bỏ qua/từ chối; role vẫn là `user`. | Chưa ghi | Chưa thực hiện |
-| FR04-DT-17 | R3 | Sau khi cập nhật, đăng nhập lại hoặc GET hồ sơ để kiểm tra role. | User không được nâng thành Admin. | Chưa ghi | Chưa thực hiện |
+| FR04-DT-16 | R3 | Gửi request với `role: "admin"` trong payload của User thường. | API bỏ qua/từ chối; role vẫn là `user`. | user được nâng thành admin | Fail |
+| FR04-DT-17 | R3 | Sau khi cập nhật, đăng nhập lại hoặc GET hồ sơ để kiểm tra role. | User không được nâng thành Admin. | user được nâng thành admin | Fail |
 
 ## 6. Test xác thực và quyền truy cập
 
