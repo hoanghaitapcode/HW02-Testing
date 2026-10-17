@@ -47,7 +47,7 @@ Không thêm cột `Bằng chứng`; kết quả ảnh lỗi được quản lý
 | FR19-DT-04 | A2 | Đăng nhập User thường và gọi API/xem trang danh sách người dùng Admin. | Bị từ chối; không lộ danh sách người dùng. | UI không hỗ trợ  | Block |
 | FR19-DT-05 | A3 | Không gửi JWT rồi gọi API danh sách người dùng. | Bị từ chối xác thực. | HTTP trả 401 | Pass |
 | FR19-DT-06 | A4 | Gọi API bằng JWT sai hoặc hết hạn. | Bị từ chối xác thực; không trả danh sách. |HTTP code trả 403 | Pass |
-| FR19-DT-07 | A5 | Gọi API bằng JWT hợp lệ nhưng role là User. | Bị từ chối quyền Admin; không trả danh sách. | Chưa ghi | Chưa thực hiện |
+| FR19-DT-07 | A5 | Gọi API bằng JWT hợp lệ nhưng role là User. | Bị từ chối quyền Admin; không trả danh sách. | HTTP trả 401 | Pass |
 
 ## 4. Test xóa người dùng
 
@@ -55,20 +55,20 @@ Tiền điều kiện: có tài khoản Admin đang đăng nhập và có ít nh
 
 | Test ID | Lớp bao phủ | Điều kiện và thao tác | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 |---|---|---|---|---|---|
-| FR19-DT-08 | A1, U2 | Admin xóa một User khác đang tồn tại. | Xóa thành công; User không còn trong danh sách. | Chưa ghi | Chưa thực hiện |
-| FR19-DT-09 | A1, U3 | Admin gửi yêu cầu xóa chính user ID của tài khoản đang đăng nhập. | Bị từ chối; tài khoản Admin vẫn hoạt động và còn trong danh sách. | Chưa ghi | Chưa thực hiện |
-| FR19-DT-10 | A1, U4 | Admin xóa một user ID không tồn tại. | Trả lỗi phù hợp; không xóa nhầm tài khoản khác. | Chưa ghi | Chưa thực hiện |
-| FR19-DT-11 | A2, U2 | User thường gọi API xóa một User khác. | Bị từ chối do không có quyền Admin; dữ liệu không đổi. | Chưa ghi | Chưa thực hiện |
-| FR19-DT-12 | A3, U2 | Không có JWT gọi API xóa User khác. | Bị từ chối xác thực; dữ liệu không đổi. | Chưa ghi | Chưa thực hiện |
-| FR19-DT-13 | A4, U2 | Dùng JWT sai hoặc hết hạn để xóa User khác. | Bị từ chối xác thực; dữ liệu không đổi. | Chưa ghi | Chưa thực hiện |
-| FR19-DT-14 | A5, U2 | Dùng JWT User hợp lệ không có role admin để xóa User khác. | Bị từ chối phân quyền; dữ liệu không đổi. | Chưa ghi | Chưa thực hiện |
+| FR19-DT-08 | A1, U2 | Admin xóa một User khác đang tồn tại. | Xóa thành công; User không còn trong danh sách. | User không còn tron danh sách | Pass |
+| FR19-DT-09 | A1, U3 | Admin gửi yêu cầu xóa chính user ID của tài khoản đang đăng nhập. | Bị từ chối; tài khoản Admin vẫn hoạt động và còn trong danh sách. | User vẫn bị xóa khỏi danh sách |  |
+| FR19-DT-10 | A1, U4 | Admin xóa một user ID không tồn tại. | Trả lỗi phù hợp; không xóa nhầm tài khoản khác. | Vẫn xóa được user | Fail |
+| FR19-DT-11 | A2, U2 | User thường gọi API xóa một User khác. | Bị từ chối do không có quyền Admin; dữ liệu không đổi. | Vẫn xóa được user với status code 200 | Fail |
+| FR19-DT-12 | A3, U2 | Không có JWT gọi API xóa User khác. | Bị từ chối xác thực; dữ liệu không đổi. | Bị từ chối | Pass |
+| FR19-DT-13 | A4, U2 | Dùng JWT sai hoặc hết hạn để xóa User khác. | Bị từ chối xác thực; dữ liệu không đổi. | Không xóa được | Pass |
+| FR19-DT-14 | A5, U2 | Dùng JWT User hợp lệ không có role admin để xóa User khác. | Bị từ chối phân quyền; dữ liệu không đổi. | Vẫn xóa được | Fail |
 
 ## 5. Tính toàn vẹn sau thao tác
 
 | Test ID | Lớp bao phủ | Điều kiện và thao tác | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 |---|---|---|---|---|---|
-| FR19-DT-15 | U3 | Sau khi thử xóa chính mình, Admin tải lại danh sách và thực hiện thao tác Admin khác. | Admin vẫn tồn tại, token còn hoạt động và thao tác Admin tiếp theo được xử lý bình thường. | Chưa ghi | Chưa thực hiện |
-| FR19-DT-16 | U2 | Sau khi xóa User khác, tải lại danh sách và gọi lại API lấy danh sách. | User đã xóa không còn xuất hiện; các User khác không bị ảnh hưởng. | Chưa ghi | Chưa thực hiện |
+| FR19-DT-15 | U3 | Sau khi thử xóa chính mình, Admin tải lại danh sách và thực hiện thao tác Admin khác. | Admin vẫn tồn tại, token còn hoạt động và thao tác Admin tiếp theo được xử lý bình thường. | Xóa được admin nhưng refresh FE vẫn không mất token | Fail |
+| FR19-DT-16 | U2 | Sau khi xóa User khác, tải lại danh sách và gọi lại API lấy danh sách. | User đã xóa không còn xuất hiện; các User khác không bị ảnh hưởng. | Xóa thành công và hiển thị đúng | Pass |
 
 ## 6. Các điểm chưa được đặc tả rõ
 
