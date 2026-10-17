@@ -86,12 +86,12 @@ Các ô cùng trạng thái là `Ambiguous` vì đặc tả chưa nói rõ yêu 
 
 | Test ID | Lớp bao phủ | Điều kiện và thao tác | Kết quả mong đợi | Kết quả thực tế | Trạng thái |
 |---|---|---|---|---|---|
-| FR10-DT-23 | A3 | User A dùng tài khoản của mình hủy đơn `pending` thuộc User B. | Từ chối; trạng thái đơn không đổi. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-24 | A4 | Không gửi JWT khi chuyển đơn `pending` sang `confirmed`. | Từ chối xác thực; trạng thái không đổi. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-25 | A5 | Gửi JWT sai hoặc hết hạn để chuyển `pending` sang `confirmed`. | Từ chối xác thực; trạng thái không đổi. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-26 | A6 | User có JWT hợp lệ nhưng không có role admin gọi thao tác Admin `pending`→`confirmed`. | Từ chối quyền; trạng thái không đổi. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-27 | A2 | Chủ đơn cố chuyển `pending`→`confirmed` bằng quyền User. | Từ chối vì chỉ Admin được xác nhận; trạng thái không đổi. | Chưa ghi | Chưa thực hiện |
-| FR10-DT-28 | A2 | Chủ đơn cố chuyển `confirmed`→`shipping` bằng quyền User. | Từ chối vì chỉ Admin được giao hàng; trạng thái không đổi. | Chưa ghi | Chưa thực hiện |
+| FR10-DT-23 | A3 | User A dùng tài khoản của mình hủy đơn `pending` thuộc User B. | Từ chối; trạng thái đơn không đổi. | UI Không hỗ trợ hủy đơn | Block |
+| FR10-DT-24 | A4 | Không gửi JWT khi chuyển đơn `pending` sang `confirmed`. | Từ chối xác thực; trạng thái không đổi. | Không thấy JWT | Block |
+| FR10-DT-25 | A5 | Gửi JWT sai hoặc hết hạn để chuyển `pending` sang `confirmed`. | Từ chối xác thực; trạng thái không đổi. | Không thấy JWT | Block |
+| FR10-DT-26 | A6 | User có JWT hợp lệ nhưng không có role admin gọi thao tác Admin `pending`→`confirmed`. | Không thấy JWT | Block |
+| FR10-DT-27 | A2 | Chủ đơn cố chuyển `pending`→`confirmed` bằng quyền User. | Từ chối vì chỉ Admin được xác nhận; trạng thái không đổi. | UI không hỗ trợ | Block |
+| FR10-DT-28 | A2 | Chủ đơn cố chuyển `confirmed`→`shipping` bằng quyền User. | Từ chối vì chỉ Admin được giao hàng; trạng thái không đổi. | UI không hỗ trợ| Block |
 
 ## 8. Các trường hợp chưa đặc tả rõ
 
@@ -105,15 +105,3 @@ Các test sau được thiết kế để hỏi/ghi nhận hành vi, nhưng khô
 | FR10-DT-32 | Gửi yêu cầu `shipping`→`shipping`. | `Ambiguous` vì chưa đặc tả thao tác cùng trạng thái. |
 | FR10-DT-33 | Gửi yêu cầu `delivered`→`delivered`. | `Ambiguous` vì chưa đặc tả thao tác cùng trạng thái. |
 | FR10-DT-34 | Gửi yêu cầu `canceled`→`canceled`. | `Ambiguous` vì chưa đặc tả thao tác cùng trạng thái. |
-
-## 9. Tổng hợp thiết kế
-
-| Nhóm | Số test case |
-|---|---:|
-| Chuyển đổi hợp lệ | 7 |
-| Chuyển đổi không hợp lệ | 15 |
-| Quyền, xác thực và sở hữu | 6 |
-| Trường hợp chưa đặc tả rõ | 6 |
-| **Tổng cộng** | **34** |
-
-Các test case bắt đầu ở trạng thái `Chưa thực hiện`. Không có BVA số riêng cho FR-10 vì các trạng thái là miền phân loại; các biên phân loại đã được bao phủ bằng Domain Testing.
